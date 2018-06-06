@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Set ui color
-        UIButton.appearance().tintColor = UIColor.purple
+        //UIButton.appearance().tintColor = UIColor.purple
         
         return true
     }
