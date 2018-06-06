@@ -8,22 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		657B244020BC283E001E05B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B243F20BC283E001E05B7 /* AppDelegate.swift */; };
-		657B244220BC283E001E05B7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B244120BC283E001E05B7 /* FirstViewController.swift */; };
-		657B244420BC283E001E05B7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B244320BC283E001E05B7 /* SecondViewController.swift */; };
+		657B244220BC283E001E05B7 /* PlayerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B244120BC283E001E05B7 /* PlayerProfileVC.swift */; };
+		657B244420BC283E001E05B7 /* HeroesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B244320BC283E001E05B7 /* HeroesVC.swift */; };
 		657B244720BC283E001E05B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657B244520BC283E001E05B7 /* Main.storyboard */; };
 		657B244920BC283F001E05B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657B244820BC283F001E05B7 /* Assets.xcassets */; };
 		657B244C20BC283F001E05B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657B244A20BC283F001E05B7 /* LaunchScreen.storyboard */; };
+		657B245620BC2A60001E05B7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B245520BC2A60001E05B7 /* Networking.swift */; };
+		657B245820BC30F2001E05B7 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B245720BC30F2001E05B7 /* DataModels.swift */; };
+		65870EC620BFEABC00E4085E /* HeroListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65870EC520BFEABC00E4085E /* HeroListCell.swift */; };
+		6589E07C20C55F940082B74F /* HeroDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589E07B20C55F940082B74F /* HeroDetailsVC.swift */; };
+		659E4BB120C54981003D7307 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659E4BB020C54981003D7307 /* Cache.swift */; };
+		D014037A1AE7C688DD075A4F /* Pods_Heroes_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B28C1007742A2CF84B0EE61 /* Pods_Heroes_Stats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		465C6E8BE6C8783790B12CFD /* Pods-Heroes Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Heroes Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Heroes Stats/Pods-Heroes Stats.debug.xcconfig"; sourceTree = "<group>"; };
 		657B243C20BC283E001E05B7 /* Heroes Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Heroes Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		657B243F20BC283E001E05B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		657B244120BC283E001E05B7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		657B244320BC283E001E05B7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		657B244120BC283E001E05B7 /* PlayerProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProfileVC.swift; sourceTree = "<group>"; };
+		657B244320BC283E001E05B7 /* HeroesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesVC.swift; sourceTree = "<group>"; };
 		657B244620BC283E001E05B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		657B244820BC283F001E05B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		657B244B20BC283F001E05B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		657B244D20BC283F001E05B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		657B245520BC2A60001E05B7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		657B245720BC30F2001E05B7 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		65870EC520BFEABC00E4085E /* HeroListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListCell.swift; sourceTree = "<group>"; };
+		6589E07B20C55F940082B74F /* HeroDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsVC.swift; sourceTree = "<group>"; };
+		659E4BB020C54981003D7307 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		6B28C1007742A2CF84B0EE61 /* Pods_Heroes_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Heroes_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A33A5D0D2867BC340C257DAC /* Pods-Heroes Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Heroes Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Heroes Stats/Pods-Heroes Stats.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D014037A1AE7C688DD075A4F /* Pods_Heroes_Stats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +57,8 @@
 			children = (
 				657B243E20BC283E001E05B7 /* Heroes Stats */,
 				657B243D20BC283E001E05B7 /* Products */,
+				748846717C31A2B40A35419B /* Pods */,
+				EC5BD6B57E85D61D6E1A09A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +74,52 @@
 			isa = PBXGroup;
 			children = (
 				657B243F20BC283E001E05B7 /* AppDelegate.swift */,
-				657B244120BC283E001E05B7 /* FirstViewController.swift */,
-				657B244320BC283E001E05B7 /* SecondViewController.swift */,
+				657B245420BC2A43001E05B7 /* Model */,
+				657B245320BC2A2C001E05B7 /* Views */,
 				657B244520BC283E001E05B7 /* Main.storyboard */,
 				657B244820BC283F001E05B7 /* Assets.xcassets */,
 				657B244A20BC283F001E05B7 /* LaunchScreen.storyboard */,
 				657B244D20BC283F001E05B7 /* Info.plist */,
 			);
 			path = "Heroes Stats";
+			sourceTree = "<group>";
+		};
+		657B245320BC2A2C001E05B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				657B244120BC283E001E05B7 /* PlayerProfileVC.swift */,
+				657B244320BC283E001E05B7 /* HeroesVC.swift */,
+				6589E07B20C55F940082B74F /* HeroDetailsVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		657B245420BC2A43001E05B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				657B245520BC2A60001E05B7 /* Networking.swift */,
+				657B245720BC30F2001E05B7 /* DataModels.swift */,
+				65870EC520BFEABC00E4085E /* HeroListCell.swift */,
+				659E4BB020C54981003D7307 /* Cache.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		748846717C31A2B40A35419B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				465C6E8BE6C8783790B12CFD /* Pods-Heroes Stats.debug.xcconfig */,
+				A33A5D0D2867BC340C257DAC /* Pods-Heroes Stats.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC5BD6B57E85D61D6E1A09A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B28C1007742A2CF84B0EE61 /* Pods_Heroes_Stats.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 657B245020BC283F001E05B7 /* Build configuration list for PBXNativeTarget "Heroes Stats" */;
 			buildPhases = (
+				0D69716ED16C5D2BBFBF7DEA /* [CP] Check Pods Manifest.lock */,
 				657B243820BC283E001E05B7 /* Sources */,
 				657B243920BC283E001E05B7 /* Frameworks */,
 				657B243A20BC283E001E05B7 /* Resources */,
+				85DDA10F40E602C6EB0CE7B3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +190,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D69716ED16C5D2BBFBF7DEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Heroes Stats-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85DDA10F40E602C6EB0CE7B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Heroes Stats/Pods-Heroes Stats-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Heroes Stats/Pods-Heroes Stats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		657B243820BC283E001E05B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				657B244420BC283E001E05B7 /* SecondViewController.swift in Sources */,
+				659E4BB120C54981003D7307 /* Cache.swift in Sources */,
+				657B244420BC283E001E05B7 /* HeroesVC.swift in Sources */,
+				65870EC620BFEABC00E4085E /* HeroListCell.swift in Sources */,
+				6589E07C20C55F940082B74F /* HeroDetailsVC.swift in Sources */,
 				657B244020BC283E001E05B7 /* AppDelegate.swift in Sources */,
-				657B244220BC283E001E05B7 /* FirstViewController.swift in Sources */,
+				657B245820BC30F2001E05B7 /* DataModels.swift in Sources */,
+				657B244220BC283E001E05B7 /* PlayerProfileVC.swift in Sources */,
+				657B245620BC2A60001E05B7 /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,11 +385,13 @@
 		};
 		657B245120BC283F001E05B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 465C6E8BE6C8783790B12CFD /* Pods-Heroes Stats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 862W8539QB;
 				INFOPLIST_FILE = "Heroes Stats/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,11 +405,13 @@
 		};
 		657B245220BC283F001E05B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A33A5D0D2867BC340C257DAC /* Pods-Heroes Stats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 862W8539QB;
 				INFOPLIST_FILE = "Heroes Stats/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
