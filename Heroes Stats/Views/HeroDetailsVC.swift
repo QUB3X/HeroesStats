@@ -13,14 +13,11 @@ class HeroDetailsVC: UITableViewController {
     var hero: Hero!
     
     // Stats
-    @IBOutlet weak var gamesPlayedCounter: UILabel!
-    @IBOutlet weak var gamesBannedCounter: UILabel!
-    @IBOutlet weak var popularityCounter: UILabel!
-    @IBOutlet weak var winrateCounter: UILabel!
-    
-    // Nav
-    @IBOutlet var navbarView: UIView!
-
+    @IBOutlet weak var gamesPlayedLabel: UILabel!
+    @IBOutlet weak var gamesBannedLabel: UILabel!
+    @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var winrateLabel: UILabel!
+    @IBOutlet weak var deltaWinrateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +25,11 @@ class HeroDetailsVC: UITableViewController {
         // Set title
         self.title = hero.name
         
-        self.gamesPlayedCounter.text = String(hero.gamesPlayed ?? 0)
-        self.gamesBannedCounter.text = String(hero.gamesBanned ?? 0)
-        self.popularityCounter.text = "\(hero.popularity ?? 0)%"
-        self.winrateCounter.text = "\(hero.winrate ?? 0)% (Δ\(hero.deltaWinrate ?? 0)%)"
-            
+        self.gamesPlayedLabel.text = String(hero.gamesPlayed ?? 0)
+        self.gamesBannedLabel.text = String(hero.gamesBanned ?? 0)
+        self.popularityLabel.text = "\(hero.popularity ?? 0)%"
+        self.winrateLabel.text = "\(hero.winrate ?? 0)"
+        self.deltaWinrateLabel.text = "% (Δ\(hero.deltaWinrate ?? 0)%)"
         // Add Big Titles
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true

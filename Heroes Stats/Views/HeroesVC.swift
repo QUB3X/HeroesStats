@@ -68,6 +68,10 @@ class HeroesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "showHeroDetails", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64.0
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showHeroDetails" {
             if let vc = segue.destination as? HeroDetailsVC {
