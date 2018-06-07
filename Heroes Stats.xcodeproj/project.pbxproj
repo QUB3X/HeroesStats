@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65116D9520C91A5400532773 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65116D9420C91A5400532773 /* Colors.swift */; };
 		657B244020BC283E001E05B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B243F20BC283E001E05B7 /* AppDelegate.swift */; };
 		657B244220BC283E001E05B7 /* PlayerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B244120BC283E001E05B7 /* PlayerProfileVC.swift */; };
 		657B244420BC283E001E05B7 /* HeroesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B244320BC283E001E05B7 /* HeroesListVC.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		465C6E8BE6C8783790B12CFD /* Pods-Heroes Stats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Heroes Stats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Heroes Stats/Pods-Heroes Stats.debug.xcconfig"; sourceTree = "<group>"; };
+		65116D9420C91A5400532773 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		657B243C20BC283E001E05B7 /* Heroes Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Heroes Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		657B243F20BC283E001E05B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		657B244120BC283E001E05B7 /* PlayerProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProfileVC.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				657B245720BC30F2001E05B7 /* DataModels.swift */,
 				65870EC520BFEABC00E4085E /* HeroListCell.swift */,
 				659E4BB020C54981003D7307 /* Cache.swift */,
+				65116D9420C91A5400532773 /* Colors.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65E0E99520C84D83004447D7 /* HeroesSplitVC.swift in Sources */,
+				65116D9520C91A5400532773 /* Colors.swift in Sources */,
 				659E4BB120C54981003D7307 /* Cache.swift in Sources */,
 				657B244420BC283E001E05B7 /* HeroesListVC.swift in Sources */,
 				65870EC620BFEABC00E4085E /* HeroListCell.swift in Sources */,

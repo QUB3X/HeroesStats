@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,24 +30,23 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l17-NC-t9I">
                                             <rect key="frame" x="8" y="0.0" width="64" height="64"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="l17-NC-t9I" secondAttribute="height" multiplier="1:1" id="nII-3x-K42"/>
+                                                <constraint firstAttribute="width" secondItem="l17-NC-t9I" secondAttribute="height" multiplier="1:1" id="NW8-e6-KhR"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HeroName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5Z-ew-PRl">
-                                            <rect key="frame" x="80" y="0.0" width="82" height="64"/>
+                                            <rect key="frame" x="80" y="21.5" width="82" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="l17-NC-t9I" firstAttribute="centerY" secondItem="KuR-Is-IXz" secondAttribute="centerY" id="EgB-op-AiN"/>
-                                        <constraint firstItem="g5Z-ew-PRl" firstAttribute="centerY" secondItem="l17-NC-t9I" secondAttribute="centerY" id="Ns8-vf-8rD"/>
-                                        <constraint firstItem="l17-NC-t9I" firstAttribute="leading" secondItem="KuR-Is-IXz" secondAttribute="leading" constant="8" id="Psx-Sd-sV7"/>
-                                        <constraint firstAttribute="trailing" secondItem="l17-NC-t9I" secondAttribute="trailing" constant="303" id="Q9w-Oe-1eZ"/>
-                                        <constraint firstItem="g5Z-ew-PRl" firstAttribute="leading" secondItem="l17-NC-t9I" secondAttribute="trailing" constant="8" id="Sc6-r3-vMc"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g5Z-ew-PRl" secondAttribute="trailing" constant="20" symbolic="YES" id="mCQ-6F-cWe"/>
-                                        <constraint firstItem="g5Z-ew-PRl" firstAttribute="height" secondItem="l17-NC-t9I" secondAttribute="height" id="qRO-W0-Axx"/>
+                                        <constraint firstItem="g5Z-ew-PRl" firstAttribute="leading" secondItem="l17-NC-t9I" secondAttribute="trailing" constant="8" id="9al-87-dkB"/>
+                                        <constraint firstItem="g5Z-ew-PRl" firstAttribute="centerY" secondItem="KuR-Is-IXz" secondAttribute="centerY" id="HvN-gH-OLO"/>
+                                        <constraint firstItem="l17-NC-t9I" firstAttribute="leading" secondItem="KuR-Is-IXz" secondAttribute="leading" constant="8" id="O6D-XW-edg"/>
+                                        <constraint firstItem="l17-NC-t9I" firstAttribute="centerY" secondItem="KuR-Is-IXz" secondAttribute="centerY" id="YdN-Ns-uLg"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g5Z-ew-PRl" secondAttribute="trailing" constant="20" symbolic="YES" id="hcw-8f-Zez"/>
+                                        <constraint firstItem="l17-NC-t9I" firstAttribute="height" secondItem="KuR-Is-IXz" secondAttribute="height" id="q4n-Hd-oLu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
