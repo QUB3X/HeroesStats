@@ -12,10 +12,24 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        guard
+            let rootVC = window?.rootViewController as? UITabBarController,
+            let splitVC = rootVC.viewControllers?[1] as? UISplitViewController,
+            let masterNC = splitVC.viewControllers.first as? UINavigationController,
+            let detailNC = splitVC.viewControllers.last as? UINavigationController,
+            let masterVC = masterNC.topViewController as? HeroListVC,
+            let detailVC = detailNC.topViewController as? HeroDetailVC
+        else {
+            fatalError()
+        }
+        
+        let firstHero = masterVC.heroes.first
+        detailVC.hero = firstHero
+        
+        masterVC.delegate = detailVC
         
         // Set ui color
         // UIButton.appearance().tintColor = UIColor.Accent.Purple.dark

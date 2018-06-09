@@ -13,3 +13,7 @@ class HeroListCell: UITableViewCell {
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var heroThumbImage: UIImageView!
 }
+
+class TalentCell: UITableViewCell {
+    @IBOutlet weak var talentName: UILabel!
+}

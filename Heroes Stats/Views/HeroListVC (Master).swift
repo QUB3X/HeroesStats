@@ -10,29 +10,55 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class HeroesListVC: UITableViewController {
+protocol HeroSelectionDelegate: class {
+    func heroSelected(_ newHero: Hero)
+}
+
+class HeroListVC: UITableViewController {
     
     var heroes: [Hero] = []
     
+    weak var delegate: HeroSelectionDelegate?
+    
     var selectedHeroPath: IndexPath?
+    
+    private var appDelegate: AppDelegate!
     
     let IMAGE_URL = "https://blzmedia-a.akamaihd.net/heroes/circleIcons/storm_ui_ingame_heroselect_btn_"
    
+    // Fetch data
+    func fetchData() {
+        // Fetch data
+        getHeroes(completion: {
+            _heroes in
+            
+            // Save and update data
+            self.heroes = _heroes as [Hero]
+            self.updateData()
+            
+            // Load first hero data
+            self.delegate?.heroSelected(self.heroes.first!)
+        })
+    }
+    
+    // Update data
+    func updateData() {
+        tableView.reloadData()
+    }
     
     // Fetch data
     override func viewWillAppear(_ animated: Bool) {
-        
         // Deselect row
         if selectedHeroPath != nil {
             self.tableView.deselectRow(at: selectedHeroPath!, animated: true)
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let parentVC = self.splitViewController as! HeroesSplitVC
-        parentVC.heroMaster = self
+
+        if heroes.isEmpty {
+            fetchData()
+        }
         
         // Set title
         self.title = "Heroes"
@@ -71,20 +97,15 @@ class HeroesListVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // get selected hero
-        selectedHeroPath = indexPath
+        // to deselect row
+        self.selectedHeroPath = indexPath
+        
         let selectedHero = heroes[indexPath.row]
-        // go to next view
+        delegate?.heroSelected(selectedHero)
         
-        if let parent = self.splitViewController as? HeroesSplitVC {
-            // Pass hero data to detail view
-            parent.heroDetail?.hero = selectedHero
-            // Refresh the view
-            parent.heroDetail?.updateView()
-            // Show the hero page
-            showDetailViewController(parent.heroDetail!, sender: self)
+        if let detailVC = delegate as? HeroDetailVC, let detailNC = detailVC.navigationController {
+            splitViewController?.showDetailViewController(detailNC, sender: nil)
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
