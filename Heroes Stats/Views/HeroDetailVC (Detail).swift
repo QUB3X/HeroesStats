@@ -77,25 +77,26 @@ class HeroDetailVC: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showTalents" {
-            if let heroTalentsVC = segue.destination as? HeroTalentsVC,
-                let heroName = self.hero?.name {
-                getHero(heroName: parseHeroName(name: heroName), completion: {
-                    heroDetails in
-                    heroTalentsVC.talents = heroDetails.talents
-                    heroTalentsVC.tableView.reloadData()
-                })
-            }
-        }
-        if segue.identifier == "showMatchups" {
-            if let heroMatchupsVC = segue.destination as? HeroMatchupsVC,
-                let heroName = self.hero?.name {
-                getHero(heroName: parseHeroName(name: heroName), completion: {
-                    heroDetails in
-                    heroMatchupsVC.heroes = heroDetails.matchups
-                    heroMatchupsVC.tableView.reloadData()
-                })
-            }
+        if hero != nil {
+            getHero(heroName: hero!.name, completion: {
+                _hero in
+                switch segue.identifier {
+                case "showTalents":
+                    if let talentVC = segue.destination as? HeroTalentsVC {
+                        print("Setted hero data")
+                        talentVC.hero = _hero
+                    }
+                    break;
+                case "showMatchups":
+                    
+                    break;
+                case "showMapTalents":
+                    
+                    break;
+                default:
+                    break;
+                }
+            })
         }
     }
 }

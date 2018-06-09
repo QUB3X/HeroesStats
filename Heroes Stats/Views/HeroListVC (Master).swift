@@ -81,7 +81,7 @@ class HeroListVC: UITableViewController {
         if heroes.count > 0 {
             let hero = heroes[indexPath.row]
             // URL friendly image location
-            let heroNameImg = parseHeroName(name: hero.name) + ".png"
+            let heroNameImg = parseHeroName(hero.name) + ".png"
             // Set hero name
             cell.heroNameLabel.text = hero.name
             

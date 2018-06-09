@@ -10,11 +10,18 @@ import UIKit
 
 class HeroTalentsVC: UITableViewController {
 
-    var talents: [[Talent]] = []
+    var hero: HeroDetails? {
+        didSet {
+            talents = hero!.talents
+            tableView.reloadData()
+        }
+    }
+    
+    private var talents: [[Talent]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "Talents"
         
         // Add Big Titles

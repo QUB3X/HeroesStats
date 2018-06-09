@@ -19,7 +19,7 @@ func getPlayer(playerId: String, completion: @escaping (Player) -> Void) {
         if let json = res.data {
         
             do {
-                let player = try parsePlayerData(data: json)
+                let player = try parsePlayerData(json)
                 // return the player object
                 completion(player)
                 //print("Fetch complete!")
@@ -34,21 +34,26 @@ func getPlayer(playerId: String, completion: @escaping (Player) -> Void) {
 
 func getHero(heroName: String, completion: @escaping (HeroDetails) -> Void) {
     //print("fetching hero data...")
-    
-    Alamofire.request(API_URL + "heroes/\(heroName)").response {
-        res in
-        if let json = res.data {
+    if let heroName = heroName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
         
-            do {
-                let hero = try parseHeroData(data: json)
-                // return the hero object
-                completion(hero)
-                //print("Fetch complete!")
-            } catch {
-                print(error)
+        let url = API_URL + "heroes/\(heroName)"
+        
+        Alamofire.request(url).response {
+            res in
+            
+            if let json = res.data {
+            
+                do {
+                    let hero = try parseHeroData(json)
+                    // return the hero object
+                    completion(hero)
+                    //print("Fetch complete!")
+                } catch {
+                    print(error)
+                }
+            } else {
+                print("No Json")
             }
-        } else {
-            print("No Json")
         }
     }
 }
@@ -62,7 +67,7 @@ func getHeroes(completion: @escaping ([Hero]) -> Void) {
         
             do {
                 // It's a container
-                let heroes = try parseHeroesData(data: json)
+                let heroes = try parseHeroesData(json)
                 // return the heroes array object
                 completion(heroes)
                 //print("Fetch complete!")
@@ -75,21 +80,21 @@ func getHeroes(completion: @escaping ([Hero]) -> Void) {
     }
 }
 
-func parseHeroName(name: String) -> String {
+func parseHeroName(_ name: String) -> String {
     return name.replacingOccurrences(of: "[ -.ú]", with: "", options: [.regularExpression]).replacingOccurrences(of: " ", with: "-").lowercased()
 }
 
-private func parsePlayerData(data: Data) throws -> Player {
+private func parsePlayerData(_ data: Data) throws -> Player {
         let _player = try JSONDecoder().decode(s_Player.self, from: data)
     
         return Player(player: _player)
 }
-private func parseHeroData(data: Data) throws -> HeroDetails {
+private func parseHeroData(_ data: Data) throws -> HeroDetails {
     let _hero = try JSONDecoder().decode(s_Hero_Detail.self, from: data)
     
     return HeroDetails(heroDetails: _hero)
 }
-private func parseHeroesData(data: Data) throws -> [Hero] {
+private func parseHeroesData(_ data: Data) throws -> [Hero] {
     let _heroes_cont = try JSONDecoder().decode(s_HeroesContainer.self, from: data)
     var heroes: [Hero] = []
     
