@@ -63,7 +63,7 @@ struct s_HeroesContainer: Decodable {
     let heroes: [s_Hero]
 }
 
-class Player {
+class Player: NSObject {
     init(player: s_Player) {
         playerName = player.playerName
         teamLeague = parseRank(player.teamLeague)
@@ -93,7 +93,7 @@ class Player {
     let maps: [Map]
 }
 
-class Hero {
+class Hero: NSObject {
     init(hero: s_Hero) {
         name = hero.name
         gamesPlayed = hero.gamesPlayed ?? 0
@@ -110,9 +110,11 @@ class Hero {
     let winrate: Float
     let deltaWinrate: Float
     let popularity: Float
+    
+    
 }
 
-class HeroDetails {
+class HeroDetails: NSObject {
     init(heroDetails: s_Hero_Detail) {
         talents = heroDetails.talents
         var heroes: [Hero] = []

@@ -35,7 +35,7 @@ class HeroListVC: UITableViewController {
             // Save and update data
             self.heroes = _heroes as [Hero]
             self.updateData()
-            
+
             // Load first hero data
             self.delegate?.heroSelected(self.heroes.first!)
         })
@@ -68,6 +68,26 @@ class HeroListVC: UITableViewController {
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
+        
+        // Set filter button
+        let filterButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(self.showFilters))
+        navigationItem.rightBarButtonItem = filterButton
+    }
+    
+    @objc func showFilters() {
+        let filterController = UIAlertController(title: "Filters", message: "Choose a sorting method", preferredStyle: .actionSheet)
+        let sortByWinrate = UIAlertAction(title: "Sort by Winrate", style: .default, handler: {_ in
+            self.heroes = self.heroes.sorted(by: {$0.winrate > $1.winrate})
+            self.tableView.reloadData()
+        })
+        let sortByName = UIAlertAction(title: "Sort by Name", style: .default, handler: {_ in
+            self.heroes = self.heroes.sorted(by: {$0.name < $1.name})
+            self.tableView.reloadData()
+        })
+        filterController.addAction(sortByWinrate)
+        filterController.addAction(sortByName)
+        
+        self.present(filterController, animated: true, completion: nil)
     }
     
     // MARK: - Table functions
