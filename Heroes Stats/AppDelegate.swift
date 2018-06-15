@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DropDown
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
+        // Setup Split View Controller
         guard
             let rootVC = window?.rootViewController as? UITabBarController,
             let splitVC = rootVC.viewControllers?[1] as? UISplitViewController,
@@ -31,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         masterVC.delegate = detailVC
         
+        // Setup dropdown
+        DropDown.startListeningToKeyboard()
+
         // Set ui color
         // UIButton.appearance().tintColor = UIColor.Accent.Purple.dark
         
@@ -61,4 +66,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

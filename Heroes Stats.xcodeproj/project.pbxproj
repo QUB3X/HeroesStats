@@ -95,8 +95,8 @@
 		657B243E20BC283E001E05B7 /* Heroes Stats */ = {
 			isa = PBXGroup;
 			children = (
-				657B245420BC2A43001E05B7 /* Model */,
 				657B243F20BC283E001E05B7 /* AppDelegate.swift */,
+				657B245420BC2A43001E05B7 /* Model */,
 				657B245320BC2A2C001E05B7 /* Views */,
 				657B244520BC283E001E05B7 /* Main.storyboard */,
 				657B244820BC283F001E05B7 /* Assets.xcassets */,
@@ -109,9 +109,9 @@
 		657B245320BC2A2C001E05B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6532BC9720CD35DF005F05FE /* WelcomeVC.swift */,
 				657B244120BC283E001E05B7 /* PlayerProfileVC.swift */,
 				6532BC9920CD35EC005F05FE /* Heroes (Master-Detail) */,
-				6532BC9720CD35DF005F05FE /* WelcomeVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,14 +241,16 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Heroes Stats/Pods-Heroes Stats-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/LGButton/LGButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Alertift/Alertift.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftVideoBackground/SwiftVideoBackground.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alertift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftVideoBackground.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

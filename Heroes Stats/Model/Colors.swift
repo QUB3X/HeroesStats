@@ -11,11 +11,17 @@ import UIKit
 extension UIColor {
     struct Accent {
         struct Purple {
-            static let superlight = UIColor(red: 208, green: 163, blue: 255, alpha: 255)
-            static let light = UIColor(red: 163, green: 96, blue: 251, alpha: 255)
-            static let normal = UIColor(red: 137, green: 0, blue: 255, alpha: 255)
-            static let dark = UIColor(red: 113, green: 0, blue: 210, alpha: 255)
-            static let superdark = UIColor(red: 62, green: 0, blue: 116, alpha: 255)
+            static let superlight = UIColor(red:0.82, green:0.64, blue:1.00, alpha:1.0)
+            static let light = UIColor(red:0.64, green:0.38, blue:0.98, alpha:1.0)
+            static let normal = UIColor(red:0.54, green:0.00, blue:1.00, alpha:1.0)
+            static let dark = UIColor(red:0.44, green:0.00, blue:0.82, alpha:1.0)
+            static let superdark = UIColor(red:0.24, green:0.00, blue:0.45, alpha:1.0)
+        }
+        struct Green {
+            static let normal = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0)
+        }
+        struct Red {
+            static let normal = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0)
         }
     }
 }

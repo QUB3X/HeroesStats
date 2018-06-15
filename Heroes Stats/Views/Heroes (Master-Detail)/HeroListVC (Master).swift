@@ -16,15 +16,15 @@ protocol HeroSelectionDelegate: class {
 
 class HeroListVC: UITableViewController {
     
+    let IMAGE_URL = "https://blzmedia-a.akamaihd.net/heroes/circleIcons/storm_ui_ingame_heroselect_btn_"
+    
     var heroes: [Hero] = []
-    
-    weak var delegate: HeroSelectionDelegate?
-    
     var selectedHeroPath: IndexPath?
     
+    
+    weak var delegate: HeroSelectionDelegate?
     private var appDelegate: AppDelegate!
     
-    let IMAGE_URL = "https://blzmedia-a.akamaihd.net/heroes/circleIcons/storm_ui_ingame_heroselect_btn_"
    
     // Fetch data
     func fetchData() {
@@ -74,22 +74,6 @@ class HeroListVC: UITableViewController {
         navigationItem.rightBarButtonItem = filterButton
     }
     
-    @objc func showFilters() {
-        let filterController = UIAlertController(title: "Filters", message: "Choose a sorting method", preferredStyle: .actionSheet)
-        let sortByWinrate = UIAlertAction(title: "Sort by Winrate", style: .default, handler: {_ in
-            self.heroes = self.heroes.sorted(by: {$0.winrate > $1.winrate})
-            self.tableView.reloadData()
-        })
-        let sortByName = UIAlertAction(title: "Sort by Name", style: .default, handler: {_ in
-            self.heroes = self.heroes.sorted(by: {$0.name < $1.name})
-            self.tableView.reloadData()
-        })
-        filterController.addAction(sortByWinrate)
-        filterController.addAction(sortByName)
-        
-        self.present(filterController, animated: true, completion: nil)
-    }
-    
     // MARK: - Table functions
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,6 +88,10 @@ class HeroListVC: UITableViewController {
             let heroNameImg = parseHeroName(hero.name) + ".png"
             // Set hero name
             cell.heroNameLabel.text = hero.name
+            
+            // Set winrates
+            cell.winrateLabel.text = "\(hero.winrate)%"
+            cell.deltaWinrateLabel.text = cell.formatDeltaWinrate(hero.deltaWinrate)
             
             // Fetch image and set it
             Alamofire.request(IMAGE_URL + heroNameImg).responseImage { response in
@@ -130,6 +118,29 @@ class HeroListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64.0
+    }
+    
+    // MARK: - Utility
+    @objc func showFilters() {
+        let filterController = UIAlertController(title: "Filters", message: "Choose a sorting method", preferredStyle: .actionSheet)
+        let sortByWinrate = UIAlertAction(title: "Sort by Winrate", style: .default, handler: {_ in
+            self.heroes = self.heroes.sorted(by: {$0.winrate > $1.winrate})
+            self.tableView.reloadData()
+        })
+        let sortByDeltaWinrate = UIAlertAction(title: "Sort by Δ Winrate", style: .default, handler: {_ in
+            self.heroes = self.heroes.sorted(by: {$0.deltaWinrate == $1.deltaWinrate ? $0.name < $1.name : $0.deltaWinrate > $1.deltaWinrate})
+            self.tableView.reloadData()
+        })
+        let sortByName = UIAlertAction(title: "Sort by Name", style: .default, handler: {_ in
+            self.heroes = self.heroes.sorted(by: {$0.name < $1.name})
+            self.tableView.reloadData()
+        })
+        filterController.addAction(sortByWinrate)
+        filterController.addAction(sortByDeltaWinrate)
+        filterController.addAction(sortByName)
+        filterController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        self.present(filterController, animated: true, completion: nil)
     }
 }
 

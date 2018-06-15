@@ -10,9 +10,14 @@ import UIKit
 
 class PlayerProfileVC: UITableViewController {
 
-    var playerId = "2366006"
+    // mine is "2366006"
+    var playerId: String?
     
-    var player: Player?
+    var player: Player? {
+        didSet {
+            refreshUI()
+        }
+    }
     
     @IBOutlet weak var playerTableView: UITableView!
     
@@ -29,32 +34,59 @@ class PlayerProfileVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = UserDefaults.standard
+        
         // Add Big Titles
         if #available(iOS 11.0, *) {
             self.navigationController?.navigationBar.prefersLargeTitles = true
         }
         
-        getPlayer(playerId: playerId, completion: {
+        // If it's the first time user log in, show welcome page
+        showWelcomePage()
+        
+        if playerId != nil {
+            fetchPlayerStats()
+        } else if let _playerId = defaults.string(forKey: "playerId") {
+            playerId = _playerId
+            fetchPlayerStats()
+        }
+    }
+    
+    func fetchPlayerStats() {
+        getPlayer(playerId: playerId!, completion: {
             _player in
             
             self.player = _player
-            self.updateView()
+            
+            self.refreshUI()
         })
     }
     
-    func updateView() {
+    func refreshUI() {
         // Data that get fetched asynchronously
-        
-        // Set title
-        self.title = self.player?.playerName ?? "Player"
-        self.navigationController?.navigationBar.topItem?.title = self.player?.playerName ?? "Player"
-        self.teamLeagueLabel.text = player?.teamLeague
-        self.heroLeagueLabel.text = player?.heroLeague
-        self.unrankedDraftLabel.text = player?.unrankedDraft
-        self.quickMatchLabel.text = player?.quickMatch
-        self.winrateLabel.text = "\(player?.winrate ?? 0)"
-        self.mvpRateLabel.text = "\(player?.MVPrate ?? 0)"
-        self.gamesPlayedLabel.text = "\(player?.gamesPlayed ?? 0)"
-        self.timePlayedLabel.text = player?.timePlayed
+        if let _player = self.player {
+            // Set title
+            self.title = _player.playerName
+            self.navigationController?.navigationBar.topItem?.title = _player.playerName
+            self.teamLeagueLabel.text = _player.teamLeague
+            self.heroLeagueLabel.text = _player.heroLeague
+            self.unrankedDraftLabel.text = _player.unrankedDraft
+            self.quickMatchLabel.text = _player.quickMatch
+            self.winrateLabel.text = "\(_player.winrate)"
+            self.mvpRateLabel.text = "\(_player.MVPrate)"
+            self.gamesPlayedLabel.text = "\(_player.gamesPlayed)"
+            self.timePlayedLabel.text = _player.timePlayed
+        }
+    }
+    
+    func showWelcomePage() {
+        let defaults = UserDefaults.standard
+        if !defaults.bool(forKey: "isFirstOpen") {
+            self.performSegue(withIdentifier: "showWelcomePage", sender: self)
+        }
+    }
+    
+    @IBAction func unwindToPlayer(segue: UIStoryboardSegue) {
+        fetchPlayerStats()
     }
 }

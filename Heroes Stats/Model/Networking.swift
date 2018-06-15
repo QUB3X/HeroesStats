@@ -103,3 +103,10 @@ private func parseHeroesData(_ data: Data) throws -> [Hero] {
     }
     return heroes
 }
+
+// For Welcome Page and Player Search
+func parseId(_ data: Data) throws -> String {
+    let obj = try JSONDecoder().decode(s_Id.self, from: data)
+    let id = "\(obj.id)"
+    return id
+}
