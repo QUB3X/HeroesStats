@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SKActivityIndicatorView
 
 class PlayerProfileVC: UITableViewController {
 
@@ -53,6 +54,7 @@ class PlayerProfileVC: UITableViewController {
     }
     
     func fetchPlayerStats() {
+        SKActivityIndicator.show("Loading your stats...")
         getPlayer(playerId: playerId!, completion: {
             _player in
             
@@ -63,6 +65,7 @@ class PlayerProfileVC: UITableViewController {
     }
     
     func refreshUI() {
+        SKActivityIndicator.dismiss()
         // Data that get fetched asynchronously
         if let _player = self.player {
             // Set title

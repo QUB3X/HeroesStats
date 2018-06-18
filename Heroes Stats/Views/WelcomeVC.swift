@@ -11,6 +11,7 @@ import SwiftVideoBackground
 import DropDown
 import Alamofire
 import Alertift
+import SKActivityIndicatorView
 
 class WelcomeVC: UIViewController {
 
@@ -89,6 +90,8 @@ class WelcomeVC: UIViewController {
     
     func fetchPlayerAndContinue() {
         if isInputValid {
+            // Show loading
+            SKActivityIndicator.show("Loading your profile...")
             // Fix input
             let battleTag = inputTextField.text!.replacingOccurrences(of: "#", with: "_").replacingOccurrences(of: " ", with: "")
             // Do request
@@ -107,6 +110,9 @@ class WelcomeVC: UIViewController {
                             defaults.set(true, forKey: "isFirstOpen") // !true = false
                             defaults.set(_playerId, forKey: "playerId")
                             print("Set new PlayerID")
+                            
+                            // Hide loading
+                            SKActivityIndicator.dismiss()
                             self.playerId = _playerId
                             self.performSegue(withIdentifier: "unwindToPlayer", sender: self)
                         } catch {
@@ -121,6 +127,7 @@ class WelcomeVC: UIViewController {
     }
     
     func handleError() {
+        SKActivityIndicator.dismiss()
         Alertift.alert(title: "Error", message: "Something went wrong and we couldnt find your profile. 😞 Double check and try again?")
             .action(.default("Ok"))
             .show(on: self)

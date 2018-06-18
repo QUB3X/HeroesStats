@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SKActivityIndicatorView
 
 class HeroDetailVC: UITableViewController {
 
@@ -78,12 +79,15 @@ class HeroDetailVC: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if hero != nil {
+            SKActivityIndicator.show()
             getHero(heroName: hero!.name, completion: {
                 _hero in
+                SKActivityIndicator.dismiss()
                 switch segue.identifier {
                 case "showTalents":
                     if let talentVC = segue.destination as? HeroTalentsVC {
                         print("Setted hero data")
+                        talentVC.heroName = self.hero!.name
                         talentVC.hero = _hero
                     }
                     break;

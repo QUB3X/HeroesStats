@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import SKActivityIndicatorView
 
 protocol HeroSelectionDelegate: class {
     func heroSelected(_ newHero: Hero)
@@ -29,9 +30,11 @@ class HeroListVC: UITableViewController {
     // Fetch data
     func fetchData() {
         // Fetch data
+        SKActivityIndicator.show("Loading heroes...")
         getHeroes(completion: {
             _heroes in
             
+            SKActivityIndicator.dismiss()
             // Save and update data
             self.heroes = _heroes as [Hero]
             self.updateData()
@@ -122,7 +125,7 @@ class HeroListVC: UITableViewController {
     
     // MARK: - Utility
     @objc func showFilters() {
-        let filterController = UIAlertController(title: "Filters", message: "Choose a sorting method", preferredStyle: .actionSheet)
+        let filterController = UIAlertController(title: "Filters", message: "Choose a sorting method!", preferredStyle: .actionSheet)
         let sortByWinrate = UIAlertAction(title: "Sort by Winrate", style: .default, handler: {_ in
             self.heroes = self.heroes.sorted(by: {$0.winrate > $1.winrate})
             self.tableView.reloadData()
@@ -140,7 +143,8 @@ class HeroListVC: UITableViewController {
         filterController.addAction(sortByName)
         filterController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
-        self.present(filterController, animated: true, completion: nil)
+            
+        present(filterController, animated: true, completion: nil)
     }
 }
 

@@ -539,27 +539,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="talentCell" id="sYB-fK-vdb" customClass="TalentCell" customModule="Heroes_Stats" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="talentCell" rowHeight="54" id="sYB-fK-vdb" customClass="TalentCell" customModule="Heroes_Stats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sYB-fK-vdb" id="lwS-22-qUK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Kr-zAF">
-                                            <rect key="frame" x="24" y="11.5" width="47" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hK5-9U-WDC">
+                                            <rect key="frame" x="8" y="2" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="1oh-se-Wrq"/>
+                                                <constraint firstAttribute="width" constant="48" id="4p4-1u-74L"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Kr-zAF">
+                                            <rect key="frame" x="64" y="15.5" width="50.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xBn-Kr-zAF" firstAttribute="leading" secondItem="lwS-22-qUK" secondAttribute="leadingMargin" constant="8" id="QKh-E1-FcD"/>
+                                        <constraint firstAttribute="bottom" secondItem="hK5-9U-WDC" secondAttribute="bottom" constant="2" id="1pP-KH-qfH"/>
+                                        <constraint firstItem="hK5-9U-WDC" firstAttribute="top" secondItem="lwS-22-qUK" secondAttribute="top" constant="2" id="8vZ-xb-PbN"/>
+                                        <constraint firstAttribute="bottom" secondItem="hK5-9U-WDC" secondAttribute="bottom" constant="2" id="ASM-aH-RRN"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xBn-Kr-zAF" secondAttribute="trailingMargin" id="gnb-uu-Nug"/>
-                                        <constraint firstItem="xBn-Kr-zAF" firstAttribute="centerY" secondItem="lwS-22-qUK" secondAttribute="centerY" id="zaD-g3-98S"/>
+                                        <constraint firstItem="hK5-9U-WDC" firstAttribute="leading" secondItem="lwS-22-qUK" secondAttribute="leading" constant="8" id="oXj-zT-0Z5"/>
+                                        <constraint firstItem="xBn-Kr-zAF" firstAttribute="leading" secondItem="hK5-9U-WDC" secondAttribute="trailing" constant="8" id="oqZ-oc-FAb"/>
+                                        <constraint firstItem="xBn-Kr-zAF" firstAttribute="centerY" secondItem="hK5-9U-WDC" secondAttribute="centerY" id="puh-Vh-b6d"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="talentImage" destination="hK5-9U-WDC" id="mfo-el-V6W"/>
                                     <outlet property="talentName" destination="xBn-Kr-zAF" id="QCQ-Vg-uw7"/>
                                 </connections>
                             </tableViewCell>
@@ -572,7 +584,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LD3-85-TYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4044" y="412"/>
+            <point key="canvasLocation" x="4044" y="411.544227886057"/>
         </scene>
         <!--Map Winrates-->
         <scene sceneID="HIn-Nz-HJC">
@@ -602,11 +614,11 @@
             </objects>
             <point key="canvasLocation" x="4044" y="1798"/>
         </scene>
-        <!--Heroes SplitVC-->
+        <!--Heroes-->
         <scene sceneID="ucc-2o-Qtd">
             <objects>
                 <splitViewController id="2YX-QC-GLd" customClass="HeroesSplitVC" customModule="Heroes_Stats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="GiU-dI-Mo4"/>
+                    <tabBarItem key="tabBarItem" title="Heroes" id="GiU-dI-Mo4"/>
                     <navigationItem key="navigationItem" id="5Nu-xh-6Ls"/>
                     <connections>
                         <segue destination="5B2-d6-15J" kind="relationship" relationship="detailViewController" id="Kmm-Jk-3Gc"/>
@@ -620,7 +632,7 @@
         <!--WelcomeVC-->
         <scene sceneID="Th0-zH-zNV">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="VSN-mM-J2C" customClass="WelcomeVC" customModule="Heroes_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VSN-mM-J2C" customClass="WelcomeVC" customModule="Heroes_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UpK-aU-N40">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -698,6 +710,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bN7-94-MHz"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="confirmButton" destination="yyO-eu-sk2" id="fOO-hE-Ici"/>
                         <outlet property="formBottomMargin" destination="TEJ-vs-qG7" id="kay-OF-7hk"/>
@@ -734,9 +748,7 @@
         <scene sceneID="B0d-BU-IXW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z0p-Ri-ZoA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Player" image="player-profile" id="acW-dT-cKf">
-                        <inset key="imageInsets" minX="0.0" minY="11" maxX="0.0" maxY="11"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Player" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Vk-1X-4bK">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -763,19 +775,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="ooQ-qc-dL6">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="0.0" id="xKc-3E-Xqx">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xKc-3E-Xqx" id="U5Q-xQ-8yu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection id="QUV-gh-EXt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="UFW-UH-wOH">
@@ -1204,7 +1203,6 @@
     </scenes>
     <resources>
         <image name="left-arrow" width="18" height="74"/>
-        <image name="player-profile" width="100" height="100"/>
         <image name="winrate-positive" width="40" height="40"/>
     </resources>
 </document>

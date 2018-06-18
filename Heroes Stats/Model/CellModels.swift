@@ -49,4 +49,6 @@ class HeroListCell: UITableViewCell {
 
 class TalentCell: UITableViewCell {
     @IBOutlet weak var talentName: UILabel!
+    @IBOutlet weak var talentImage: UIImageView!
+    
 }

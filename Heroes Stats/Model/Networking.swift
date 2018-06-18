@@ -10,6 +10,9 @@ import Foundation
 import Alamofire
 
 let API_URL = "https://heroes-api.glitch.me/api/v1/"
+let TALENTS_URL = "https://github.com/QUB3X/hots-talents-bundle/releases/download/yrel-patch/talents.zip"
+
+
 
 func getPlayer(playerId: String, completion: @escaping (Player) -> Void) {
     //print("fetching player data...")
@@ -81,7 +84,7 @@ func getHeroes(completion: @escaping ([Hero]) -> Void) {
 }
 
 func parseHeroName(_ name: String) -> String {
-    return name.replacingOccurrences(of: "[ -.ú]", with: "", options: [.regularExpression]).replacingOccurrences(of: " ", with: "-").lowercased()
+    return name.replacingOccurrences(of: "ú", with: "u").replacingOccurrences(of: " ", with: "-").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "'", with: "").lowercased()
 }
 
 private func parsePlayerData(_ data: Data) throws -> Player {
