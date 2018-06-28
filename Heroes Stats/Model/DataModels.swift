@@ -68,6 +68,9 @@ struct s_Id: Decodable {
 }
 
 class Player {
+    var heroes = [Hero]()
+
+    
     init(player: s_Player) {
         playerName = player.playerName
         teamLeague = parseRank(player.teamLeague)
@@ -79,8 +82,10 @@ class Player {
         heroLevel = player.heroLevel ?? 0
         gamesPlayed = player.gamesPlayed ?? 0
         timePlayed = parseTimePlayed(player.timePlayed)
-        heroes = player.heroes ?? []
         maps = player.maps ?? []
+        for hero in (player.heroes)! {
+            heroes.append(Hero(hero: hero))
+        }
     }
     
     let playerName: String
@@ -93,7 +98,6 @@ class Player {
     let heroLevel: Int
     let gamesPlayed: Int
     let timePlayed: String
-    let heroes: [s_Hero]
     let maps: [Map]
 }
 
@@ -114,8 +118,17 @@ class Hero {
     let winrate: Float
     let deltaWinrate: Float
     let popularity: Float
-    
-    
+}
+
+class Patch {
+    init(_title: String, _version: String, _url: String) {
+        title = _title
+        version = _version
+        url = _url
+    }
+    let title: String
+    let version: String
+    let url: String
 }
 
 class HeroDetails {
@@ -132,22 +145,4 @@ class HeroDetails {
     let talents: [[Talent]]
     let matchups: [Hero]
     let mapWinrate: [Map]
-}
-
-// funcs
-func parseRank(_ string: String?) -> String {
-    if string == nil {
-        return "?"
-    }
-    let newString = string!.split(separator: ":")[1].replacingOccurrences(of: "[ ()]", with: "", options: [.regularExpression])
-    
-    return newString
-}
-func parseTimePlayed(_ string: String?) -> String {
-    if string == nil {
-        return "?"
-    }
-    let newString = string!.replacingOccurrences(of: " Days", with: "d").replacingOccurrences(of: " Hours", with: "h").replacingOccurrences(of: " Minutes", with: "m")
-    
-    return newString
 }

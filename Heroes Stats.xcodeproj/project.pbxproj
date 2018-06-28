@@ -21,8 +21,16 @@
 		657B245820BC30F2001E05B7 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657B245720BC30F2001E05B7 /* DataModels.swift */; };
 		65870EC620BFEABC00E4085E /* CellModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65870EC520BFEABC00E4085E /* CellModels.swift */; };
 		6589E07C20C55F940082B74F /* HeroDetailVC (Detail).swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589E07B20C55F940082B74F /* HeroDetailVC (Detail).swift */; };
-		659E4BB120C54981003D7307 /* TalentImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659E4BB020C54981003D7307 /* TalentImages.swift */; };
+		658B3F0620E0EE4A0059079B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B3F0520E0EE4A0059079B /* SearchVC.swift */; };
+		658B3F0820E0EFF50059079B /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B3F0720E0EFF50059079B /* Parsing.swift */; };
+		659E4BB120C54981003D7307 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659E4BB020C54981003D7307 /* Images.swift */; };
+		65A24A0E20E407D1006B56C5 /* PlayerHeroesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A24A0D20E407D1006B56C5 /* PlayerHeroesVC.swift */; };
 		65E0E99520C84D83004447D7 /* HeroesSplitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E0E99420C84D83004447D7 /* HeroesSplitVC.swift */; };
+		65F5EB8920D83DA800F01F0F /* HeroMapWinrateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5EB8820D83DA800F01F0F /* HeroMapWinrateVC.swift */; };
+		65F5EB8B20D977D200F01F0F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65F5EB8A20D977D200F01F0F /* Media.xcassets */; };
+		65F5EB8E20DCEAC400F01F0F /* PatchListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5EB8D20DCEAC400F01F0F /* PatchListVC.swift */; };
+		65F5EB9020DCEADF00F01F0F /* PatchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5EB8F20DCEADF00F01F0F /* PatchDetailVC.swift */; };
+		65F5EB9220DCEE6500F01F0F /* PatchSplitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5EB9120DCEE6500F01F0F /* PatchSplitVC.swift */; };
 		D014037A1AE7C688DD075A4F /* Pods_Heroes_Stats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B28C1007742A2CF84B0EE61 /* Pods_Heroes_Stats.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +52,16 @@
 		657B245720BC30F2001E05B7 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		65870EC520BFEABC00E4085E /* CellModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModels.swift; sourceTree = "<group>"; };
 		6589E07B20C55F940082B74F /* HeroDetailVC (Detail).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroDetailVC (Detail).swift"; sourceTree = "<group>"; };
-		659E4BB020C54981003D7307 /* TalentImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalentImages.swift; sourceTree = "<group>"; };
+		658B3F0520E0EE4A0059079B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		658B3F0720E0EFF50059079B /* Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		659E4BB020C54981003D7307 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		65A24A0D20E407D1006B56C5 /* PlayerHeroesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHeroesVC.swift; sourceTree = "<group>"; };
 		65E0E99420C84D83004447D7 /* HeroesSplitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesSplitVC.swift; sourceTree = "<group>"; };
+		65F5EB8820D83DA800F01F0F /* HeroMapWinrateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroMapWinrateVC.swift; sourceTree = "<group>"; };
+		65F5EB8A20D977D200F01F0F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		65F5EB8D20DCEAC400F01F0F /* PatchListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchListVC.swift; sourceTree = "<group>"; };
+		65F5EB8F20DCEADF00F01F0F /* PatchDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchDetailVC.swift; sourceTree = "<group>"; };
+		65F5EB9120DCEE6500F01F0F /* PatchSplitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchSplitVC.swift; sourceTree = "<group>"; };
 		6B28C1007742A2CF84B0EE61 /* Pods_Heroes_Stats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Heroes_Stats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33A5D0D2867BC340C257DAC /* Pods-Heroes Stats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Heroes Stats.release.xcconfig"; path = "Pods/Target Support Files/Pods-Heroes Stats/Pods-Heroes Stats.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,11 +81,12 @@
 		6532BC9920CD35EC005F05FE /* Heroes (Master-Detail) */ = {
 			isa = PBXGroup;
 			children = (
+				65E0E99420C84D83004447D7 /* HeroesSplitVC.swift */,
 				657B244320BC283E001E05B7 /* HeroListVC (Master).swift */,
 				6589E07B20C55F940082B74F /* HeroDetailVC (Detail).swift */,
 				65116D9620C93A1B00532773 /* HeroTalentsVC.swift */,
-				65E0E99420C84D83004447D7 /* HeroesSplitVC.swift */,
 				65116D9820C9453700532773 /* HeroMatchupsVC.swift */,
+				65F5EB8820D83DA800F01F0F /* HeroMapWinrateVC.swift */,
 			);
 			path = "Heroes (Master-Detail)";
 			sourceTree = "<group>";
@@ -100,6 +117,7 @@
 				657B245320BC2A2C001E05B7 /* Views */,
 				657B244520BC283E001E05B7 /* Main.storyboard */,
 				657B244820BC283F001E05B7 /* Assets.xcassets */,
+				65F5EB8A20D977D200F01F0F /* Media.xcassets */,
 				657B244A20BC283F001E05B7 /* LaunchScreen.storyboard */,
 				657B244D20BC283F001E05B7 /* Info.plist */,
 			);
@@ -109,9 +127,10 @@
 		657B245320BC2A2C001E05B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6532BC9720CD35DF005F05FE /* WelcomeVC.swift */,
-				657B244120BC283E001E05B7 /* PlayerProfileVC.swift */,
+				65A24A0C20E407B5006B56C5 /* Player */,
+				658B3F0520E0EE4A0059079B /* SearchVC.swift */,
 				6532BC9920CD35EC005F05FE /* Heroes (Master-Detail) */,
+				65F5EB8C20DCEAA900F01F0F /* Patches */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,10 +141,31 @@
 				657B245520BC2A60001E05B7 /* Networking.swift */,
 				657B245720BC30F2001E05B7 /* DataModels.swift */,
 				65870EC520BFEABC00E4085E /* CellModels.swift */,
-				659E4BB020C54981003D7307 /* TalentImages.swift */,
+				659E4BB020C54981003D7307 /* Images.swift */,
 				65116D9420C91A5400532773 /* Colors.swift */,
+				658B3F0720E0EFF50059079B /* Parsing.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		65A24A0C20E407B5006B56C5 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				6532BC9720CD35DF005F05FE /* WelcomeVC.swift */,
+				657B244120BC283E001E05B7 /* PlayerProfileVC.swift */,
+				65A24A0D20E407D1006B56C5 /* PlayerHeroesVC.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		65F5EB8C20DCEAA900F01F0F /* Patches */ = {
+			isa = PBXGroup;
+			children = (
+				65F5EB9120DCEE6500F01F0F /* PatchSplitVC.swift */,
+				65F5EB8D20DCEAC400F01F0F /* PatchListVC.swift */,
+				65F5EB8F20DCEADF00F01F0F /* PatchDetailVC.swift */,
+			);
+			path = Patches;
 			sourceTree = "<group>";
 		};
 		748846717C31A2B40A35419B /* Pods */ = {
@@ -207,6 +247,7 @@
 			files = (
 				657B244C20BC283F001E05B7 /* LaunchScreen.storyboard in Resources */,
 				657B244920BC283F001E05B7 /* Assets.xcassets in Resources */,
+				65F5EB8B20D977D200F01F0F /* Media.xcassets in Resources */,
 				657B244720BC283E001E05B7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +284,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Alertift/Alertift.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 				"${BUILT_PRODUCTS_DIR}/SKActivityIndicatorView/SKActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftVideoBackground/SwiftVideoBackground.framework",
 				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
@@ -253,6 +295,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alertift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftVideoBackground.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
@@ -271,13 +314,20 @@
 			files = (
 				65E0E99520C84D83004447D7 /* HeroesSplitVC.swift in Sources */,
 				65116D9520C91A5400532773 /* Colors.swift in Sources */,
-				659E4BB120C54981003D7307 /* TalentImages.swift in Sources */,
+				658B3F0820E0EFF50059079B /* Parsing.swift in Sources */,
+				659E4BB120C54981003D7307 /* Images.swift in Sources */,
 				65116D9920C9453700532773 /* HeroMatchupsVC.swift in Sources */,
 				6532BC9820CD35DF005F05FE /* WelcomeVC.swift in Sources */,
 				657B244420BC283E001E05B7 /* HeroListVC (Master).swift in Sources */,
+				65F5EB8E20DCEAC400F01F0F /* PatchListVC.swift in Sources */,
+				65F5EB9220DCEE6500F01F0F /* PatchSplitVC.swift in Sources */,
+				65F5EB8920D83DA800F01F0F /* HeroMapWinrateVC.swift in Sources */,
 				65116D9720C93A1B00532773 /* HeroTalentsVC.swift in Sources */,
 				65870EC620BFEABC00E4085E /* CellModels.swift in Sources */,
+				65F5EB9020DCEADF00F01F0F /* PatchDetailVC.swift in Sources */,
+				658B3F0620E0EE4A0059079B /* SearchVC.swift in Sources */,
 				6589E07C20C55F940082B74F /* HeroDetailVC (Detail).swift in Sources */,
+				65A24A0E20E407D1006B56C5 /* PlayerHeroesVC.swift in Sources */,
 				657B244020BC283E001E05B7 /* AppDelegate.swift in Sources */,
 				657B245820BC30F2001E05B7 /* DataModels.swift in Sources */,
 				657B244220BC283E001E05B7 /* PlayerProfileVC.swift in Sources */,
@@ -429,7 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 862W8539QB;
 				INFOPLIST_FILE = "Heroes Stats/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,7 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 862W8539QB;
 				INFOPLIST_FILE = "Heroes Stats/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

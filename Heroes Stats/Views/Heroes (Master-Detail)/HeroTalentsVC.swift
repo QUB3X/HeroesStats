@@ -40,9 +40,7 @@ class HeroTalentsVC: UITableViewController {
         self.title = "Talents"
         
         // Add Big Titles
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         updateTalents()
     }
@@ -65,8 +63,9 @@ class HeroTalentsVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "talentCell", for: indexPath) as! TalentCell
         
         let talent = talents[indexPath.section][indexPath.row]
-        cell.talentName.text = talent.name
         
+        cell.talentName.text = talent.name
+        cell.talentWinrate.text = "\(talent.winrate ?? 0)%"
         cell.talentImage.image = TalentImage(talent: talent.name, hero: heroName!).searchMatchingImage()
         
         return cell
@@ -74,25 +73,22 @@ class HeroTalentsVC: UITableViewController {
     
     // Mark: - Utility // Talents
     func fetchTalents() {
-        
         SKActivityIndicator.show("Downloading talents...")
         
-        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
-            let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            let fileURL = documentsURL.appendingPathComponent("talents.zip") as URL
-            
-            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
-        }
+        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
+
         
         Alamofire.download(TALENTS_URL, to: destination).response { response in
             print(response)
             
             if let talentsPath = response.destinationURL {
                 let documentsDirectory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)[0]
+
                 do {
                     try Zip.unzipFile(talentsPath, destination: documentsDirectory, overwrite: true, password: nil, progress: {
                         progress in
                         print(progress)
+                        
                         if progress == 1 {
                             SKActivityIndicator.dismiss()
                             self.tableView.reloadData()

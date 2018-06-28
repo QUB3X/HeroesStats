@@ -8,10 +8,11 @@
 
 import Foundation
 import Alamofire
+import Kanna
 
 let API_URL = "https://heroes-api.glitch.me/api/v1/"
 let TALENTS_URL = "https://github.com/QUB3X/hots-talents-bundle/releases/download/yrel-patch/talents.zip"
-
+let PATCH_URL = "https://heroespatchnotes.com/patch/"
 
 
 func getPlayer(playerId: String, completion: @escaping (Player) -> Void) {
@@ -83,33 +84,70 @@ func getHeroes(completion: @escaping ([Hero]) -> Void) {
     }
 }
 
-func parseHeroName(_ name: String) -> String {
-    return name.replacingOccurrences(of: "ú", with: "u").replacingOccurrences(of: " ", with: "-").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "'", with: "").lowercased()
-}
-
-private func parsePlayerData(_ data: Data) throws -> Player {
-        let _player = try JSONDecoder().decode(s_Player.self, from: data)
+func getPatches(completion: @escaping ([Patch]) -> Void) {
     
-        return Player(player: _player)
-}
-private func parseHeroData(_ data: Data) throws -> HeroDetails {
-    let _hero = try JSONDecoder().decode(s_Hero_Detail.self, from: data)
-    
-    return HeroDetails(heroDetails: _hero)
-}
-private func parseHeroesData(_ data: Data) throws -> [Hero] {
-    let _heroes_cont = try JSONDecoder().decode(s_HeroesContainer.self, from: data)
-    var heroes: [Hero] = []
-    
-    for _hero in _heroes_cont.heroes {
-        heroes.append(Hero(hero: _hero))
+    Alamofire.request(PATCH_URL).response {
+        res in
+        
+        if let html = res.data {
+            
+            if let doc = try? HTML(html: html, encoding: .utf8) {
+                // Search for nodes by CSS
+                
+                var patches = [Patch]()
+                
+                for patch in doc.css(".timeline > li") {
+                    let title = patch.css("h3").first?.text ?? ""
+                    let version = String(title.split(separator: " ").last!) 
+                    let url = patch.css("a").first!["href"] ?? ""
+                    patches.append(Patch(_title: title,
+                                         _version: version,
+                                         _url: url))
+                }
+                completion(patches)
+            }
+        } else {
+            print("No HTML")
+        }
     }
-    return heroes
 }
 
-// For Welcome Page and Player Search
-func parseId(_ data: Data) throws -> String {
-    let obj = try JSONDecoder().decode(s_Id.self, from: data)
-    let id = "\(obj.id)"
-    return id
+func getPatch(url: String, completion: @escaping (String, String) -> Void) {
+    
+    Alamofire.request(PATCH_URL + url).response {
+        res in
+        
+        if let html = res.data {
+            
+            if let doc = try? HTML(html: html, encoding: .utf8) {
+                // Search for nodes by CSS
+                
+                let body = doc.css("#top > div").first
+                let title = String((body?.css("h1").first?.text?.split(separator: "–").last)!)
+                let content = body?.toHTML
+                completion(title, content!)
+            }
+        } else {
+            print("No HTML")
+        }
+    }
+}
+
+func getPlayerIdFrom(battleTag: String, region: String, completion: @escaping (String, Bool) -> () ) {
+    Alamofire.request("\(API_URL)players/battletag/\(region)/\(battleTag)").response { response in
+        if let data = response.data, let text = String(data: data, encoding: .utf8) {
+            print(text)
+           
+            do {
+                let playerId = try parseId(data)
+                
+                completion(playerId, false)
+                
+            } catch {
+                // error
+                print(error)
+                completion(String(describing: error), true)
+            }
+        }
+    }
 }

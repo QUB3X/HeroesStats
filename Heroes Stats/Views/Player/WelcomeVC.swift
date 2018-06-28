@@ -12,10 +12,9 @@ import DropDown
 import Alamofire
 import Alertift
 import SKActivityIndicatorView
+import Zip
 
 class WelcomeVC: UIViewController {
-
-    let API_URL = "http://heroes-api.glitch.me/api/v1/players/battletag/"
     
     private var isInputValid: Bool = false
     private var selectedRegion: String = "EU"
@@ -66,13 +65,13 @@ class WelcomeVC: UIViewController {
         isInputValid = validateInput(inputTextField.text!)
         if isInputValid {
             // input
-            inputTextField.textColor = UIColor.green
+            inputTextField.textColor = UIColor.Accent.Green.normal
             // confirm button enable
             confirmButton.backgroundColor = UIColor.Accent.Purple.normal
             confirmButton.isEnabled = true
         } else {
             // input
-            inputTextField.textColor = UIColor.red
+            inputTextField.textColor = UIColor.Accent.Red.normal
             // confirm button disable
             confirmButton.backgroundColor = UIColor.Accent.Purple.superlight
             confirmButton.isEnabled = false
@@ -95,34 +94,25 @@ class WelcomeVC: UIViewController {
             // Fix input
             let battleTag = inputTextField.text!.replacingOccurrences(of: "#", with: "_").replacingOccurrences(of: " ", with: "")
             // Do request
-            Alamofire.request("\(API_URL)\(selectedRegion)/\(battleTag)").response { response in
-                if let data = response.data, let text = String(data: data, encoding: .utf8) {
-                    print(text)
-                    if text == "Wrong input" {
-                        // error
-                        print("Server Said: Wrong Input")
-                        self.handleError()
-                    } else {
-                        do {
-                            let _playerId = try parseId(data)
-                            // Save playerId to persistent storage
-                            let defaults = UserDefaults.standard
-                            defaults.set(true, forKey: "isFirstOpen") // !true = false
-                            defaults.set(_playerId, forKey: "playerId")
-                            print("Set new PlayerID")
-                            
-                            // Hide loading
-                            SKActivityIndicator.dismiss()
-                            self.playerId = _playerId
-                            self.performSegue(withIdentifier: "unwindToPlayer", sender: self)
-                        } catch {
-                            // error
-                            print(error)
-                            self.handleError()
-                        }
-                    }
+            getPlayerIdFrom(battleTag: battleTag, region: selectedRegion, completion: {
+                _playerId, error in
+                
+                SKActivityIndicator.dismiss()
+                
+                if error {
+                    self.handleError()
+                } else {
+                    // Hide loading
+                    // Save playerId to persistent storage
+                    let defaults = UserDefaults.standard
+                    defaults.set(true, forKey: "isFirstOpen") // !true = false
+                    defaults.set(_playerId, forKey: "playerId")
+                    print("Set new PlayerID")
+                    
+                    self.playerId = _playerId
+                    self.performSegue(withIdentifier: "unwindToPlayer", sender: self)
                 }
-            }
+            })
         }
     }
     
@@ -131,15 +121,6 @@ class WelcomeVC: UIViewController {
         Alertift.alert(title: "Error", message: "Something went wrong and we couldnt find your profile. 😞 Double check and try again?")
             .action(.default("Ok"))
             .show(on: self)
-    }
-    
-    func validateInput(_ input: String) -> Bool {
-        if input != "" {
-            let battleTagRegex = "^[A-zÀ-ú][A-zÀ-ú0-9]{2,11}#[0-9]{4,5}$"
-            let battleTagTest = NSPredicate(format: "SELF MATCHES[c] %@", battleTagRegex)
-            return battleTagTest.evaluate(with: input)
-        }
-        return false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -153,6 +134,7 @@ class WelcomeVC: UIViewController {
     
     // Handle Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                
         if segue.identifier == "unwindToPlayer" {
             if let playerVC = segue.destination as? PlayerProfileVC {
                 playerVC.playerId = playerId
@@ -185,5 +167,4 @@ class WelcomeVC: UIViewController {
         super.viewWillDisappear(true)
         NotificationCenter.default.removeObserver(self)
     }
-
 }

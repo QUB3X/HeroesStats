@@ -43,9 +43,7 @@ class HeroDetailVC: UITableViewController {
         self.mapWinrateCell.addGestureRecognizer(mapWinrateTapGesture)
 
         // Add Big Titles
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        }
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         self.title = "Loading"
     }
@@ -85,20 +83,25 @@ class HeroDetailVC: UITableViewController {
                 SKActivityIndicator.dismiss()
                 switch segue.identifier {
                 case "showTalents":
+                    print("-> Talents")
                     if let talentVC = segue.destination as? HeroTalentsVC {
                         print("Setted hero data")
                         talentVC.heroName = self.hero!.name
                         talentVC.hero = _hero
                     }
-                    break;
                 case "showMatchups":
-                    
-                    break;
-                case "showMapTalents":
-                    
-                    break;
+                    print("-> Matchups")
+                    if let matchupsVC = segue.destination as? HeroMatchupsVC {
+                        matchupsVC.heroes = _hero.matchups
+                    }
+                case "showMapWinrate":
+                    print("-> Map Winrate")
+                    if let mapsVC = segue.destination as? HeroMapWinrateVC {
+                        mapsVC.maps = _hero.mapWinrate
+                    }
+                    break
                 default:
-                    break;
+                    break
                 }
             })
         }

@@ -19,25 +19,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup Split View Controller
         guard
             let rootVC = window?.rootViewController as? UITabBarController,
-            let splitVC = rootVC.viewControllers?[1] as? UISplitViewController,
-            let masterNC = splitVC.viewControllers.first as? UINavigationController,
-            let detailNC = splitVC.viewControllers.last as? UINavigationController,
-            let masterVC = masterNC.topViewController as? HeroListVC,
-            let detailVC = detailNC.topViewController as? HeroDetailVC
+            // Heroes
+            let heroSplitVC = rootVC.viewControllers?[1] as? UISplitViewController,
+            let heroMasterNC = heroSplitVC.viewControllers.first as? UINavigationController,
+            let heroDetailNC = heroSplitVC.viewControllers.last as? UINavigationController,
+            let heroMasterVC = heroMasterNC.topViewController as? HeroListVC,
+            let heroDetailVC = heroDetailNC.topViewController as? HeroDetailVC,
+            // Patch Notes
+            let patchSplitVC = rootVC.viewControllers?[4] as? UISplitViewController,
+            let patchMasterNC = patchSplitVC.viewControllers.first as? UINavigationController,
+            let patchMasterVC = patchMasterNC.topViewController as? PatchListVC,
+            let patchDetailVC = patchSplitVC.viewControllers.last as? PatchDetailVC
         else {
             fatalError()
         }
         
-        let firstHero = masterVC.heroes.first
-        detailVC.hero = firstHero
+        let firstHero = heroMasterVC.heroes.first
+        heroDetailVC.hero = firstHero
         
-        masterVC.delegate = detailVC
+        heroMasterVC.delegate = heroDetailVC
         
+        let lastPatch = patchMasterVC.livePatches.first
+        patchDetailVC.patch = lastPatch
+        
+        patchMasterVC.delegate = patchDetailVC
         // Setup dropdown
         DropDown.startListeningToKeyboard()
 
         // Set ui color
-        // UIButton.appearance().tintColor = UIColor.Accent.Purple.dark
+        window?.tintColor = UIColor.Accent.Purple.normal
         
         return true
     }

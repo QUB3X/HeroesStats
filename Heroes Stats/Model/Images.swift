@@ -22,6 +22,7 @@ class TalentImage {
             .replacingOccurrences(of: "zul'jin", with: "zuljin")
             .replacingOccurrences(of: "kel'thuzad", with: "kel-thuzad")
             .replacingOccurrences(of: "deckard", with: "deckard-cain")
+            .replacingOccurrences(of: "etc", with: "e-t-c")
             .replacingOccurrences(of: "'", with: "")
             .replacingOccurrences(of: ":", with: "-")
             .replacingOccurrences(of: " ", with: "-")
@@ -47,6 +48,38 @@ class TalentImage {
         if let dirPath          = paths.first
         {
             let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("talents/\(heroName!)/\(heroName!)-\(talentName!).jpg")
+            if let image = UIImage(contentsOfFile: imageURL.path) {
+                return image
+            }
+        }
+        return UIImage(named: "Missing")!
+    }
+}
+class HeroPortrait {
+    
+    let heroName: String!
+    
+    init(hero: String) {
+        heroName = hero
+            .lowercased()
+            .replacingOccurrences(of: ".", with: "")
+            .replacingOccurrences(of: "zul'jin", with: "zuljin")
+            .replacingOccurrences(of: "kel'thuzad", with: "kel-thuzad")
+            .replacingOccurrences(of: "deckard", with: "deckard-cain")
+            .replacingOccurrences(of: "etc", with: "e-t-c")
+            .replacingOccurrences(of: "'", with: "")
+            .replacingOccurrences(of: " ", with: "-")
+            .replacingOccurrences(of: "ú", with: "u")
+    }
+    
+    func searchMatchingImage() -> UIImage {
+        
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first
+        {
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("talents/\(heroName!)/\(heroName!)-portrait.jpg")
             if let image = UIImage(contentsOfFile: imageURL.path) {
                 return image
             }
