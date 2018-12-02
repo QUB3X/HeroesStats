@@ -11,7 +11,7 @@ import SKActivityIndicatorView
 import Alertift
 import DropDown
 
-class SearchVC: UIViewController {
+class SearchVC: UIViewController, ErrorMessageRenderer {
 
     
     @IBOutlet weak var battleTagInput: UITextField!
@@ -31,9 +31,9 @@ class SearchVC: UIViewController {
 
         // Title
         self.title = "Search"
-        self.navigationController?.navigationItem.title = "Search"
+        self.navigationController?.navigationBar.topItem?.title = "Search"
         // Add Big Titles
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         // Dismiss Keyboard
         let kbDismissTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(WelcomeVC.keyboardDismiss))
@@ -96,20 +96,13 @@ class SearchVC: UIViewController {
                 
                 SKActivityIndicator.dismiss()
                 if error {
-                    self.handleError()
+                    self.presentError(title: "Error", message: "Something went wrong and we couldnt find your profile. 😞 Double check and try again?")
                 } else {
                     self.playerId = _playerId
                     self.performSegue(withIdentifier: "showPlayer", sender: nil)
                 }
             })
         }
-    }
-    
-    func handleError() {
-        SKActivityIndicator.dismiss()
-        Alertift.alert(title: "Error", message: "Something went wrong and we couldnt find your profile. 😞 Double check and try again?")
-            .action(.default("Ok"))
-            .show(on: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

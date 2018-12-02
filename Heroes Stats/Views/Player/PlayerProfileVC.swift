@@ -11,7 +11,7 @@ import SKActivityIndicatorView
 import Alamofire
 import Zip
 
-class PlayerProfileVC: UITableViewController {
+class PlayerProfileVC: UITableViewController, ErrorMessageRenderer {
 
     // mine is "2366006"
     var playerId: String?
@@ -39,6 +39,7 @@ class PlayerProfileVC: UITableViewController {
         
         let defaults = UserDefaults.standard
         
+        self.navigationController?.navigationBar.topItem?.title = "Loading"
         // Add Big Titles
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -72,7 +73,6 @@ class PlayerProfileVC: UITableViewController {
     }
     
     func refreshUI() {
-        SKActivityIndicator.dismiss()
         // Data that get fetched asynchronously
         if let _player = self.player {
             // Set title
@@ -87,6 +87,7 @@ class PlayerProfileVC: UITableViewController {
             self.gamesPlayedLabel.text = "\(_player.gamesPlayed)"
             self.timePlayedLabel.text = _player.timePlayed
         }
+        SKActivityIndicator.dismiss()
     }
     
     func showWelcomePage() {
@@ -115,7 +116,7 @@ class PlayerProfileVC: UITableViewController {
             }
         }
         else if segue.identifier == "showHeroes" {
-            if let heroesVC = segue.destination as? HeroListVC {
+            if let heroesVC = segue.destination as? PlayerHeroesVC {
                 heroesVC.heroes = player?.heroes ?? []
             }
         }
@@ -145,6 +146,7 @@ class PlayerProfileVC: UITableViewController {
                     })
                 } catch {
                     SKActivityIndicator.dismiss()
+                    self.presentError(title: "Error", message: "Something went wrong while trying to download resources for the app!")
                     print(error)
                 }
             }

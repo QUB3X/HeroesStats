@@ -14,7 +14,7 @@ import Alertift
 import SKActivityIndicatorView
 import Zip
 
-class WelcomeVC: UIViewController {
+class WelcomeVC: UIViewController, ErrorMessageRenderer {
     
     private var isInputValid: Bool = false
     private var selectedRegion: String = "EU"

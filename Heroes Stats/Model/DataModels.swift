@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 /**
  *      s_
  *      is for STRUCTS that
@@ -129,6 +129,20 @@ class Patch {
     let title: String
     let version: String
     let url: String
+}
+
+class Article {
+    init(_title: String, _date: String, _url: String, _desc: String) {
+        title = _title
+        date = _date
+        description = _desc
+        url = _url
+    }
+    let title: String
+    let date: String
+    let url: String
+    let description: String
+    var images = [UIImage]()
 }
 
 class HeroDetails {

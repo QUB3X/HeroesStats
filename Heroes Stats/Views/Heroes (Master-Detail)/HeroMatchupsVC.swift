@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeroMatchupsVC: UITableViewController {
+class HeroMatchupsVC: UITableViewController, ErrorMessageRenderer {
 
     var heroes: [Hero] = [] {
         didSet {

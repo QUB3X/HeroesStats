@@ -13,7 +13,7 @@ protocol PatchSelectionDelegate: class {
     func patchSelected(_ newPatch: Patch)
 }
 
-class PatchListVC: UITableViewController {
+class PatchListVC: UITableViewController, ErrorMessageRenderer {
 
     weak var delegate: PatchSelectionDelegate?
     private var appDelegate: AppDelegate!

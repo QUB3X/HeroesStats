@@ -25,3 +25,13 @@ extension UIColor {
         }
     }
 }
+
+class StatView: UIView {
+
+    override func awakeFromNib() {
+        layer.cornerRadius = 7
+        layer.backgroundColor = UIColor.white.cgColor
+        
+    }
+    
+}

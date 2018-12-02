@@ -12,7 +12,7 @@ import AlamofireImage
 import Zip
 import SKActivityIndicatorView
 
-class HeroTalentsVC: UITableViewController {
+class HeroTalentsVC: UITableViewController, ErrorMessageRenderer {
     
     var heroName: String?
     var hero: HeroDetails? {

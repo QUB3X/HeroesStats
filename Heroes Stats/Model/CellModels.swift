@@ -81,3 +81,10 @@ func formatDeltaWinrate(winrate: Float, winrateIndicator: UIImageView, deltaWinr
     }
     return "\(winrate)%"
 }
+
+class ArticleCell: UITableViewCell {
+    
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var date: UILabel!
+}

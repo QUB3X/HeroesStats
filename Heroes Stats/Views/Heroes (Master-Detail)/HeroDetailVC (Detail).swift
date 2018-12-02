@@ -9,7 +9,7 @@
 import UIKit
 import SKActivityIndicatorView
 
-class HeroDetailVC: UITableViewController {
+class HeroDetailVC: UITableViewController, ErrorMessageRenderer {
 
     var hero: Hero? {
         didSet {
@@ -85,7 +85,6 @@ class HeroDetailVC: UITableViewController {
                 case "showTalents":
                     print("-> Talents")
                     if let talentVC = segue.destination as? HeroTalentsVC {
-                        print("Setted hero data")
                         talentVC.heroName = self.hero!.name
                         talentVC.hero = _hero
                     }

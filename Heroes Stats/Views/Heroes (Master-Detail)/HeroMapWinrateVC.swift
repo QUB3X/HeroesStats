@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeroMapWinrateVC: UITableViewController {
+class HeroMapWinrateVC: UITableViewController, ErrorMessageRenderer {
 
     var maps : [Map] = [] {
         didSet {

@@ -16,7 +16,7 @@ protocol HeroSelectionDelegate: class {
     func heroSelected(_ newHero: Hero)
 }
 
-class HeroListVC: UITableViewController {
+class HeroListVC: UITableViewController, ErrorMessageRenderer {
     
     let IMAGE_URL = "https://blzmedia-a.akamaihd.net/heroes/circleIcons/storm_ui_ingame_heroselect_btn_"
     
@@ -28,7 +28,7 @@ class HeroListVC: UITableViewController {
     weak var delegate: HeroSelectionDelegate?
     private var appDelegate: AppDelegate!
     
-    var dropdown: DropDown?
+    var dropdown: DropDown = DropDown()
     
     // Fetch data
     func fetchData() {
@@ -86,10 +86,10 @@ class HeroListVC: UITableViewController {
         let filterButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(self.showFilters))
         navigationItem.rightBarButtonItem = filterButton
         
-        dropdown = DropDown()
-        dropdown?.anchorView = filterButton
-        dropdown?.dataSource = ["Sort by Winrate", "Sort by ∆ Winrate", "Sort by Name", "Sort by Popularity"]
-        dropdown?.selectionAction = { [unowned self] (index: Int, item: String) in
+        //dropdown = DropDown()
+        dropdown.anchorView = filterButton
+        dropdown.dataSource = ["Sort by Winrate", "Sort by ∆ Winrate", "Sort by Name", "Sort by Popularity"]
+        dropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.sortTableBy(index: index)
         }
 
@@ -153,7 +153,7 @@ class HeroListVC: UITableViewController {
     
     // MARK: - Utility
     @objc func showFilters() {
-        dropdown?.show()
+        dropdown.show()
     }
     
     func sortTableBy(index: Int) {

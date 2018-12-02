@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class PatchDetailVC: UIViewController, WKUIDelegate {
+class PatchDetailVC: UIViewController, WKUIDelegate, ErrorMessageRenderer {
 
     var patch: Patch? {
         didSet {
@@ -29,6 +29,9 @@ class PatchDetailVC: UIViewController, WKUIDelegate {
         webView = WKWebView(frame: .zero)
         webView.uiDelegate = self
         view = webView
+        
+        let shareBtn = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sharePatch))
+        self.navigationItem.rightBarButtonItem = shareBtn
     }
     
     func updateUI() {
@@ -51,6 +54,14 @@ class PatchDetailVC: UIViewController, WKUIDelegate {
                 
                 self.webView.loadHTMLString(newContent, baseURL: nil)
             })
+        }
+    }
+    
+    @objc func sharePatch() {
+        if let link = patch?.url {
+        
+            let activityController = UIActivityViewController(activityItems: [PATCH_URL + link], applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
         }
     }
 }

@@ -11,9 +11,10 @@ import Alamofire
 import Kanna
 
 let API_URL = "https://heroes-api.glitch.me/api/v1/"
-let TALENTS_URL = "https://github.com/QUB3X/hots-talents-bundle/releases/download/yrel-patch/talents.zip"
+let TALENTS_URL = "https://github.com/QUB3X/hots-talents-bundle/releases/download/warchrome-patch/talents.zip"
 let PATCH_URL = "https://heroespatchnotes.com/patch/"
 
+let ESPORT_ARTICLES_URL = "https://esports.heroesofthestorm.com/en-us/articles"
 
 func getPlayer(playerId: String, completion: @escaping (Player) -> Void) {
     //print("fetching player data...")
@@ -148,6 +149,55 @@ func getPlayerIdFrom(battleTag: String, region: String, completion: @escaping (S
                 print(error)
                 completion(String(describing: error), true)
             }
+        }
+    }
+}
+
+func getEsportArticles(completion: @escaping ([Article]) -> Void) {
+    
+    Alamofire.request(ESPORT_ARTICLES_URL).response {
+        res in
+        
+        if let html = res.data {
+            if let doc = try? HTML(html: html, encoding: .utf8) {
+                // Search for nodes by CSS
+                
+                var articles = [Article]()
+                
+                // articles
+                for item in doc.css(".NewsArchive-articleList a") {
+                    let title = item.css(".News-articleTitle").first?.text ?? ""
+                    let date = item.css(".News-articleNote").first?.text ?? ""
+                    let description = item.css(".News-articleNote").first?.text ?? ""
+                    let url = item["href"] ?? ""
+                    
+                    articles.append(Article(_title: title, _date: date, _url: url, _desc: description))
+                }
+                
+                completion(articles)
+            }
+        } else {
+            print("No HTML")
+        }
+    }
+}
+
+func getEsportArticle(url: String, completion: @escaping (String) -> Void) {
+    
+    Alamofire.request("https://esports.heroesofthestorm.com" + url).response {
+        res in
+        
+        if let html = res.data {
+            
+            if let doc = try? HTML(html: html, encoding: .utf8) {
+                // Search for nodes by CSS
+                
+                let body = doc.css(".NewsArticle-wrapper").first
+                let content = body?.toHTML
+                completion(content!)
+            }
+        } else {
+            print("No HTML")
         }
     }
 }
